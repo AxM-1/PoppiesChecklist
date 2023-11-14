@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AirBnB Checklist 91A</title>
+    <script src="https://raw.githack.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        #signatureSection {
+            display: none;
+            margin-top: 20px;
+        }
+
+        #acknowledgment {
+            margin-top: 20px;
+        }
+
+        #signatureColumn {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        strong {
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        #convertPdfButton {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>AirBnB Checklist 91A</h1>
+
+    <form id="checklistForm">
+        <ul id="checklist">
+            <li>
+                <label>
+                    <strong class="uppercase">Bedroom</strong>
+                    <input type="checkbox" id="bedroomCheckbox" />
+                </label>
+                <p>
+                    - Change bedding and replace with new fresh linen<br>
+                    - Clean all tables and desks in the room<br>
+                    - All headboards of the beds need a quick quip free from any dust<br>
+                    - Change the bins<br>
+                    - Hoover and mop the area
+                </p>
+            </li>
+
+            <li>
+                <label>
+                    <strong class="uppercase">Bathroom</strong>
+                    <input type="checkbox" id="bathroomCheckbox" />
+                </label>
+                <p>
+                    - Clean all bathroom fittings<br>
+                    - Wash basin needs to be cleaned and dried; check for any limescale and try scrub them off<br>
+                    - Basin Cabinet needs to be inspected for cleanliness<br>
+                    - Taps need cleaning and buffing, leaving them shiny with no water residue<br>
+                    - Toilets need cleaning inside and outside; toilet seat needs to be cleaned and wiped dry<br>
+                    - Shower screen must be streak-free, and any limescale or watermarks need to be removed<br>
+                    - Shower drain needs to be opened and cleaned<br>
+                    - Radiator must be wiped down, leaving it polished<br>
+                    - Replace toilet roll with a new one (Attention: never leave an old roll)<br>
+                    - Put one single hand towel in the bathroom<br>
+                    - Hoover and mop the bathroom
+                </p>
+            </li>
+
+            <li>
+                <label>
+                    <strong class="uppercase">Kitchen</strong>
+                    <input type="checkbox" id="kitchenCheckbox" />
+                </label>
+                <p>
+                    - Clean all countertops and cabinets, leaving them streak-free<br>
+                    - Clean the hob, ensuring there are no food spills left<br>
+                    - Clean the sink and all dishes; dry them and place them back in the cabinets<br>
+                    - Check TEA, SUGAR, and COFFEE; make sure there is sufficient<br>
+                    - Empty the kettle and wipe it from outside<br>
+                    - Remove toaster trays and give them a good shake and wipe them clean<br>
+                    - Empty the fridge if necessary and clean the inside and outside<br>
+                    - Clean all sitting area tables and benches<br>
+                    - Hoover and mop the whole kitchen
+                </p>
+            </li>
+
+            <li>
+                <label>
+                    <strong class="uppercase">Hallway/Stars</strong>
+                    <input type="checkbox" id="hallwayCheckbox" />
+                </label>
+                <p>
+                    - Hoover and Mop Hallway and stairs
+                </p>
+            </li>
+
+            <li>
+                <label>
+                    <strong class="uppercase">Final Checks</strong>
+                    <input type="checkbox" id="finalChecksCheckbox" />
+                </label>
+                <p>
+                    - Make sure all room windows are closed before leaving<br>
+                    - Make sure all doors are locked properly<br>
+                    - Make sure to take out trash and dump it in the designated area<br>
+                    - Lock the main door, wait 20 seconds, and double-check
+                </p>
+            </li>
+        </ul>
+
+        <div id="acknowledgment">
+            <p>
+                I hereby acknowledge that I have completed all the tasks in the checklist, and I understand that any omissions leading to issues with the Customer will be my full responsibility. The company reserves the right to take appropriate action.
+            </p>
+            <label>
+                <input type="checkbox" id="acknowledgmentCheckbox" />
+                Check Mark Here
+            </label>
+            <div id="signatureSection">
+                <label for="name">Column to sign name:</label>
+                <input type="text" id="name" placeholder="Enter your name">
+                <label for="date">Date:</label>
+                <input type="date" id="date">
+            </div>
+        </div>
+
+        <div id="signatureColumn">
+            <label for="name"><strong>Name:</strong></label>
+            <input type="text" id="name" placeholder="Enter your name">
+            <label for="date"><strong>Date:</strong></label>
+            <input type="date" id="date">
+        </div>
+
+        <button id="convertPdfButton" type="button" onclick="convertToPDF()">Convert to PDF</button>
+    </form>
+
+    <script>
+        function convertToPDF() {
+            const element = document.getElementById("checklistForm");
+            html2pdf(element);
+        }
+    </script>
+</body>
+</html>
+
+
